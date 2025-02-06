@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+    {% for article in articles_list  %}
+
+    {% if article %}
+    
+       <a href="/articles/{{ article.id }}/"> <li>{{ article.title}} - {{ article.content }}</li> </a>
+
+        {% else %}
+
+        <div style="margin-top: 20px">
+            <a href="{% url 'create' %}">Create new article</a>
+        </div>
+    
+    {% endif %}
+
+    
+
+    {% endfor %}
+</ul>
+
+<div style="margin-top: 20px">
+    <a href="{% url 'create' %}">Create new article</a>
+    </div>
+
+{% endblock content %}
+
+
